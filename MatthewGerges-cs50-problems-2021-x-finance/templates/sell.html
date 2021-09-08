@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    ACTION NEEDED
+{% endblock %}
+
+{% block main %}
+    <form action = "/sell" method = "post">
+        <select name="symbol">
+            <option disabled selected value = "">Symbol</option>
+            {% for selection in selections %}
+                <option value = "{{selection.shares}}">{{selection.shares}}</option>
+            {% endfor %}
+        </select>
+        <input name = "shares" type = "number" autocomplete = "off" autofocus placeholder = "Shares" >
+        <button class="btn btn-primary" type="submit">Sell</button>
+    </form>
+    
+{% endblock %}

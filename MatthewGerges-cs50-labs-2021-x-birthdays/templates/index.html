@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="/static/styles.css" rel="stylesheet">
+        <title>Birthdays</title>
+    <script>
+        
+    </script>
+    </head>
+    <body>
+        <div class="jumbotron">
+            <h1>Birthdays</h1>
+        </div>
+        <div class="container">
+            <div class="section">
+
+                <h2>Add a Birthday</h2>
+                <!-- TODO: Create a form for users to submit a name, a month, and a day -->
+                <!--The HTML form action attribute defines what should happen to data when a form is submitted on a web page.-->
+                <!--Here the action is directing the user to the default route homepage (which is basically index.html) -->
+                <form action = "/" method = "post">
+                    <!--The method for forms is post because the user is submitting something-->
+                    <input name = "name" autocomplete = "off" placeholder = "Enter your name" type = "text">
+                    <input name = "birthmonth" autocomplete = "off"  placeholder = "BirthMonth" type = "number" min = "1" max = "12">
+                    <input name = "birthday" autocomplete = "off" placeholder = "Day of Birth" type = "number" min = "1" max = "31">
+                    <input name="id" type="number">
+                    <input name = "act" placeholder = "register/ deregister" type = "text">
+                    <input type = "submit" value = "Enter">
+                </form>
+            </div>
+            
+            <div class="container">
+            <div class="section">
+
+                <form action = "/" method = "post">
+                   
+                </form>
+            </div>
+
+            <div class="section">
+
+                <h2>All Birthdays</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Birthday</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- TODO: Loop through the database entries to display them in this table -->
+                        {% for bday in Bdays %}
+                        <!--Create a new row each time you iterate through the for loop for a new person -->
+                            <tr>
+                                <td> {{ bday.name }} </td>
+                                <!-- Put the person's name in one column in the row by accessing the bday row from the Bdays table (passed to us in application.py)-->
+                                <!--put the month/ day of the person in the same row in a different table data cell next to it -->
+                                <td> {{ bday.month }} / {{bday.day}} </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,25 @@
+body
+{
+    background-color: black;
+    color: red;
+}
+
+.centered
+{
+    text-align: center;
+}
+
+.large
+{
+    font-size: large;
+}
+
+#topofpage
+{
+    text-align: left;
+}
+
+.setmargin
+{
+    margin: 25px 50px 75px 100px;
+}

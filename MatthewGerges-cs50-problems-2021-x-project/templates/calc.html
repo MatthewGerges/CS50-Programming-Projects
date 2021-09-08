@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block body %}
+    <form action="/" method="post">
+        <div>
+            <input autocomplete="off" autofocus class="form-control" name="vector1" placeholder="Vector 1" type="text">
+        </div>
+        <div>
+            <input class="form-control" name="vector2" placeholder="Vector 2" type="text">
+        </div>
+        <select name = "choice">
+            <option disabled selected value = "">Operation</option>
+            <option value = "dotprod">Dot product for algebraic vectors</option>
+            <option value = "crossprod">Cross Product</option>
+        </select>
+        <button type="submit">Calculate</button>
+    </form>
+{% endblock %}

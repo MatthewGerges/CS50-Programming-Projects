@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+        <script>
+            function countrypick(choice)
+            {
+                let countryans = document.querySelector('.pick');
+                
+                if (choice.localeCompare("right")==0)
+                {
+                    //blinker.style.visibility = 'visible';
+                    countryans.innerHTML = "Correct!";
+                }
+                else
+                {
+                    //blinker.style.visibility = 'hidden';
+                    countryans.innerHTML = "Incorrect!";
+                }
+                
+                
+            }
+                        
+            function visible(state)
+            {
+                let blinker = document.querySelector('.correctness');
+                
+                if (state.localeCompare("right")==0)
+                {
+                    //blinker.style.visibility = 'visible';
+                    blinker.innerHTML = "Correct!";
+                }
+                else
+                {
+                    //blinker.style.visibility = 'hidden';
+                    blinker.innerHTML = "Incorrect!";
+                }
+                
+                
+            }
+            function checkanswer()
+            {
+                let answer = document.querySelector('#ANS').value;
+                answer = answer.toLowerCase();
+                if (answer.localeCompare("nairobi")==0)
+                {
+                    //alert("CORRECT!!");
+                    //alert("hello, "+ answer);
+                    document.querySelector('#ANS').style.backgroundColor= 'green';
+                    visible('right');
+                }
+                else
+                {
+                    //alert("WRONG!");
+                    document.querySelector('#ANS').style.backgroundColor = 'red';
+                    visible('wrong');
+
+                }
+            }
+            function RightAns()
+            {
+                document.querySelector('.'+'correct').style.color = 'green';
+                countrypick('right');
+            }
+            function WrongAns(country)
+            {
+                document.querySelector('#'+country).style.color = 'red';
+                countrypick('wrong');
+            }
+        </script>
+
+    </head>
+    <body>
+
+        <div class="jumbotron">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>Which continent has the largest population of animals?</h3>
+                <button id= "NA" onclick="WrongAns('NA')">North America</button>
+                <button id = "SouthAmerica" onclick="WrongAns('SouthAmerica')">South America</button>
+                <button class="incorrect" id = "Europe"onclick="WrongAns('Europe')">Europe</button>
+                <button class="correct" onclick="RightAns()">Africa</button>
+                <button id = "Asia" onclick="WrongAns('Asia')">Asia</button>
+                <button id="Oceania"onclick="WrongAns('Oceania')">Oceania</button>
+                <button id = "Antarctica"onclick="WrongAns('Antarctica')">Antarctica</button>
+                <!-- TODO: Add multiple choice question here -->
+
+                <p class = "pick">
+
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>What is the capital of Kenya?</h3>
+                <form id="box" onsubmit="checkanswer(); return false;">
+                    Answer: <input  id = "ANS" type = "text" autocomplete = "off" />
+                    <input type = "submit" value = "Check Answer"/>
+                </form>
+                <!-- TODO: Add free response question here -->
+                <p class = "correctness">
+                   <!-- <h6 class = "correctness" > Correct! </h6> -->
+                    
+                    <!--style="visibility:hidden;"-->
+                </p>
+            </div>
+            
+
+        </div>
+    </body>
+</html>
+<!-- 
+            var theParent = document.querySelector("#theDude");
+            theParent.addEventListener("click", doSomething, false);
+            
+            function dosomething(e)
+            {
+                if(e.target !== e.currentTarget)
+                {
+                    var ClickedItem = e.target.id;
+                    alert("Hello " + clickedItem)
+                }
+                e.stopPropogation
+            }
+            // TODO: Add code to check answers to questions
+-->
+            

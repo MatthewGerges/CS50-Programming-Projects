@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+A share of {{ quote.name }} ({{quote.symbol}}) costs {{ quote.price | usd }}.
+
+<!-- {'name': 'Apple Inc', 'price': 145.86, 'symbol': 'AAPL'} -->
+
+{% endblock %}
